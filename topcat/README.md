@@ -1,2 +1,2 @@
 [Topcat](http://www.star.bris.ac.uk/~mbt/topcat/) related files ...
-
+<img src="http://www.star.bris.ac.uk/~mbt/topcat/images/tc_sok.png"/>
