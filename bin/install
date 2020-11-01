@@ -1,0 +1,78 @@
+#!/bin/bash
+#
+# Name: install
+#
+# This script installs the VO tools topcat and Aladin. It
+# was written for the purpose of installation for use of a tutorial at
+# the virtual ADASS in 2020. 
+#
+# In case you find this script standalone, feel free to use it
+# according to the GNU Public License V3. 
+#
+# Note: this script is not an adequat subsedy for any reasonable package
+# of the software of your Linux distribution. Hence, dependencies will 
+# not be pulled. To make the softwares running, you need to have some
+# java installed. Try your package manager to get a suitable version.
+# You may even get packages of the softwares. So if you don't rely on
+# the most recent versions of the listed software, I strongly recommend
+# you try the package managers of your system. On debian this would be 
+# something like:
+#
+# sudo apt-get update
+# sudo apt-get install topcat
+#
+# if you want to get topcat only, or 
+#
+# sudo apt-get update
+# sudo apt-get install astro-all
+#
+# to get the softwares bundled in the astro-all package. 
+#
+# Author: Hendrik Heinl, heinl@g-vo.org. 
+#
+#
+
+# Make path to download VO-tools to
+abspath=$(readlink -f $0)
+absdir=$(dirname $abspath)
+parentdir="$(dirname "$absdir")"
+tardir=$parentdir/
+
+dirtc=${tardir}topcat/
+diral=${tardir}aladin/
+
+
+function installation(){
+
+  mkdir -p ${dirtc}
+  mkdir -p ${diral}
+
+  gettopcat
+  getaladin
+  exit 0
+}
+
+function gettopcat() {
+
+# Get the most recent version of TOPCAT
+curl -o ${dirtc}topcat http://www.star.bris.ac.uk/~mbt/topcat/topcat
+curl -o ${dirtc}topcat-full.jar http://www.star.bris.ac.uk/~mbt/topcat/topcat-full.jar
+chmod +x ${dirtc}topcat
+chmod +x ${tardir}bin/topcat
+}
+
+function getaladin() {
+
+# Get the most recent version of Aladin
+curl -o ${diral}Aladin https://aladin.u-strasbg.fr/java/Aladin
+curl -o ${diral}Aladin.jar https://aladin.u-strasbg.fr/java/Aladin.jar
+chmod +x ${diral}Aladin 
+chmod +x ${tardir}bin/aladin
+}
+
+
+installation
+
+
+
+

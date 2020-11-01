@@ -1,0 +1,9 @@
+#!/bin/bash
+
+abspath=$(readlink -f $0)
+absdir=$(dirname $abspath)
+parentdir="$(dirname "$absdir")"
+tardir=$parentdir/
+
+${tardir}topcat/topcat
+
