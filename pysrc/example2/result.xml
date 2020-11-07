@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Produced with astropy.io.votable version 3.1.2
+     http://www.astropy.org/ -->
+<VOTABLE version="1.1" xmlns="http://www.ivoa.net/xml/VOTable/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.1">
+ <DESCRIPTION>
+  Neutrino candidates from full-sky search from 2007-2017
+ </DESCRIPTION>
+ <RESOURCE type="results">
+  <COOSYS ID="system" epoch="J2000.0" system="ICRS"/>
+  <INFO ID="queryPars" name="queryPars" value="q3c_radial_query(RA, Decl, %(RA0)s, %(DEC0)s, %(SR0)s)">{'SR0': 3.0, 'DEC0': 35.0, 'RA0': 43.0}</INFO>
+  <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK"/>
+  <INFO ID="standardID" name="standardID" value="ivo://ivoa.net/std/ConeSearch">Written by DaCHS 1.4 SCSRenderer</INFO>
+  <INFO ID="citation" name="citation" value="https://antares.in2p3.fr/publicdata2017.html">This resource contains data associated with the publication https://antares.in2p3.fr/publicdata2017.html.</INFO>
+  <INFO ID="citation" name="citation" value="http://vo.km3net.de/tableinfo/ant20_01.main">For advice on how to cite the resource(s) that contributed to this result, see http://vo.km3net.de/tableinfo/ant20_01.main</INFO>
+  <TABLE ID="ndsonuhosuha" name="ndsonuhosuha">
+   <FIELD ID="distCol" datatype="double" name="_r" ucd="pos.distance" unit="deg">
+    <DESCRIPTION>
+     Distance to cone center
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="MJD" datatype="double" name="MJD" ucd="time.epoch">
+    <DESCRIPTION>
+     Modified Julian Day
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Beta" datatype="double" name="Beta" ucd="stat.error">
+    <DESCRIPTION>
+     angular error estimate on reconstruction
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Nhit" datatype="int" name="Nhit" ucd="phys.energy">
+    <DESCRIPTION>
+     number of light signals in photomultipliers
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="RA" datatype="double" name="RA" ref="system" ucd="POS_EQ_RA_MAIN">
+    <DESCRIPTION>
+     FK5 equatorial right ascension
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Decl" datatype="double" name="Decl" ref="system" ucd="POS_EQ_DEC_MAIN">
+    <DESCRIPTION>
+     FK5 equatorial declination
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="ID" arraysize="*" datatype="char" name="ID" ucd="ID_MAIN">
+    <DESCRIPTION>
+     Event identifier
+    </DESCRIPTION>
+   </FIELD>
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>0.836538409016823</TD>
+      <TD>55592.169</TD>
+      <TD>0.3</TD>
+      <TD>48</TD>
+      <TD>43.3</TD>
+      <TD>35.8</TD>
+      <TD>ANT3412</TD>
+     </TR>
+     <TR>
+      <TD>1.94262592664262</TD>
+      <TD>57258.5917</TD>
+      <TD>0.3</TD>
+      <TD>35</TD>
+      <TD>43.5</TD>
+      <TD>36.9</TD>
+      <TD>ANT7402</TD>
+     </TR>
+     <TR>
+      <TD>2.52776479777075</TD>
+      <TD>55756.7405</TD>
+      <TD>0.5</TD>
+      <TD>33</TD>
+      <TD>44.5</TD>
+      <TD>32.8</TD>
+      <TD>ANT3846</TD>
+     </TR>
+     <TR>
+      <TD>2.73187906659559</TD>
+      <TD>54500.0934</TD>
+      <TD>0.5</TD>
+      <TD>64</TD>
+      <TD>43.5</TD>
+      <TD>32.3</TD>
+      <TD>ANT0366</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+  </TABLE>
+ </RESOURCE>
+</VOTABLE>
