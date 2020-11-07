@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Produced with astropy.io.votable version 3.1.2
+     http://www.astropy.org/ -->
+<VOTABLE version="1.4" xmlns="http://www.ivoa.net/xml/VOTable/v1.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.4">
+ <DESCRIPTION>
+  Definition and support code for the ObsCore data model and table.
+ </DESCRIPTION>
+ <RESOURCE type="results">
+  <COOSYS ID="system" system="ICRS"/>
+  <INFO ID="server" name="server" value="http://dc.zah.uni-heidelberg.de"/>
+  <INFO ID="sql_query" name="sql_query" value="SELECT ivoa.obscore.dataproduct_type, ivoa.obscore.dataproduct_subtype, ivoa.obscore.calib_level, ivoa.obscore.obs_collection, ivoa.obscore.obs_id, ivoa.obscore.obs_title, ivoa.obscore.obs_publisher_did, ivoa.obscore.obs_creator_did, ivoa.obscore.access_url, ivoa.obscore.access_format, ivoa.obscore.access_estsize, ivoa.obscore.target_name, ivoa.obscore.target_class, ivoa.obscore.s_ra, ivoa.obscore.s_dec, ivoa.obscore.s_fov, ivoa.obscore.s_region, ivoa.obscore.s_resolution, ivoa.obscore.t_min, ivoa.obscore.t_max, ivoa.obscore.t_exptime, ivoa.obscore.t_resolution, ivoa.obscore.em_min, ivoa.obscore.em_max, ivoa.obscore.em_res_power, ivoa.obscore.o_ucd, ivoa.obscore.pol_states, ivoa.obscore.facility_name, ivoa.obscore.instrument_name, ivoa.obscore.s_xel1, ivoa.obscore.s_xel2, ivoa.obscore.t_xel, ivoa.obscore.em_xel, ivoa.obscore.pol_xel, ivoa.obscore.s_pixel_scale, ivoa.obscore.em_ucd, ivoa.obscore.preview, ivoa.obscore.source_table FROM ivoa.obscore LIMIT 1"/>
+  <INFO ID="query" name="query" value="SELECT TOP 1 * FROM ivoa.obscore"/>
+  <INFO ID="src_res" name="src_res" value="Contains traces from resource __system__/obscore">Definition and support code for the ObsCore data model and table.</INFO>
+  <INFO ID="src_table" name="src_table" value="Contains traces from table ivoa.ObsCore">The IVOA-defined obscore table, containing generic metadata for
+datasets within this datacenter.</INFO>
+  <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK">Query successful</INFO>
+  <INFO ID="citation" name="citation" ucd="meta.bib" value="http://dc.zah.uni-heidelberg.de/tableinfo/ivoa.ObsCore">For advice on how to cite the resource(s) that contributed to this result, see http://dc.zah.uni-heidelberg.de/tableinfo/ivoa.ObsCore</INFO>
+  <TABLE ID="ObsCore" name="ObsCore">
+   <DESCRIPTION>
+    The IVOA-defined obscore table, containing generic metadata for
+    datasets within this datacenter.
+   </DESCRIPTION>
+   <FIELD ID="dataproduct_type" arraysize="*" datatype="char" name="dataproduct_type" ucd="meta.id" utype="obscore:obsdataset.dataproducttype">
+    <DESCRIPTION>
+     High level scientific classification of the data product, taken
+     from an enumeration
+    </DESCRIPTION>
+    <VALUES>
+     <OPTION name="image" value="image"/>
+     <OPTION name="cube" value="cube"/>
+     <OPTION name="spectrum" value="spectrum"/>
+     <OPTION name="sed" value="sed"/>
+     <OPTION name="timeseries" value="timeseries"/>
+     <OPTION name="visibility" value="visibility"/>
+     <OPTION name="event" value="event"/>
+    </VALUES>
+   </FIELD>
+   <FIELD ID="dataproduct_subtype" arraysize="*" datatype="char" name="dataproduct_subtype" ucd="meta.id" utype="obscore:obsdataset.dataproductsubtype">
+    <DESCRIPTION>
+     Data product specific type
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="calib_level" datatype="short" name="calib_level" ucd="meta.code;obs.calib" utype="obscore:obsdataset.caliblevel">
+    <DESCRIPTION>
+     Amount of data processing that has been applied to the data
+    </DESCRIPTION>
+    <VALUES null="-32768"/>
+   </FIELD>
+   <FIELD ID="obs_collection" arraysize="*" datatype="char" name="obs_collection" ucd="meta.id" utype="obscore:dataid.collection">
+    <DESCRIPTION>
+     Name of a data collection (e.g., project name) this data belongs
+     to
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="obs_id" arraysize="*" datatype="char" name="obs_id" ucd="meta.id" utype="obscore:DataID.observationID">
+    <DESCRIPTION>
+     Unique identifier for an observation
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="obs_title" arraysize="*" datatype="char" name="obs_title" ucd="meta.title;obs" utype="obscore:dataid.title">
+    <DESCRIPTION>
+     Free-from title of the data set
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="obs_publisher_did" arraysize="*" datatype="char" name="obs_publisher_did" ucd="meta.ref.ivoid" utype="obscore:curation.publisherdid">
+    <DESCRIPTION>
+     Dataset identifier assigned by the publisher.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="obs_creator_did" arraysize="*" datatype="char" name="obs_creator_did" ucd="meta.id" utype="obscore:dataid.creatordid">
+    <DESCRIPTION>
+     Dataset identifier assigned by the creator.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="access_url" arraysize="*" datatype="char" name="access_url" ucd="meta.ref.url" utype="obscore:access.reference">
+    <DESCRIPTION>
+     The URL at which to obtain the data set.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="access_format" arraysize="*" datatype="char" name="access_format" ucd="meta.code.mime" utype="obscore:access.format">
+    <DESCRIPTION>
+     MIME type of the resource at access_url
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="access_estsize" datatype="long" name="access_estsize" ucd="phys.size;meta.file" unit="kbyte" utype="obscore:access.size">
+    <DESCRIPTION>
+     Estimated size of data product
+    </DESCRIPTION>
+    <VALUES null="-1"/>
+   </FIELD>
+   <FIELD ID="target_name" arraysize="*" datatype="char" name="target_name" ucd="meta.id;src" utype="obscore:Target.Name">
+    <DESCRIPTION>
+     Object a targeted observation targeted
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="target_class" arraysize="*" datatype="char" name="target_class" ucd="src.class" utype="obscore:target.class">
+    <DESCRIPTION>
+     Class of the target object (star, QSO, ...)
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="s_ra" datatype="double" name="s_ra" ucd="pos.eq.ra" unit="deg" utype="obscore:char.spatialaxis.coverage.location.coord.position2d.value2.c1">
+    <DESCRIPTION>
+     RA of (center of) observation, ICRS
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="s_dec" datatype="double" name="s_dec" ucd="pos.eq.dec" unit="deg" utype="obscore:char.spatialaxis.coverage.location.coord.position2d.value2.c2">
+    <DESCRIPTION>
+     Dec of (center of) observation, ICRS
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="s_fov" datatype="double" name="s_fov" ucd="phys.angSize;instr.fov" unit="deg" utype="obscore:char.spatialaxis.coverage.bounds.extent.diameter">
+    <DESCRIPTION>
+     Approximate spatial extent for the region covered by the
+     observation
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="s_region" arraysize="*" datatype="char" name="s_region" ucd="pos.outline;obs.field" utype="obscore:char.spatialaxis.coverage.support.area" xtype="adql:REGION">
+    <DESCRIPTION>
+     Region covered by the observation, as a polygon
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="s_resolution" datatype="double" name="s_resolution" ucd="pos.angResolution" unit="arcsec" utype="obscore:Char.SpatialAxis.Resolution.refval.value">
+    <DESCRIPTION>
+     Best spatial resolution within the data set
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="t_min" datatype="double" name="t_min" ucd="time.start;obs.exposure" unit="d" utype="obscore:char.timeaxis.coverage.bounds.limits.starttime" xtype="mjd">
+    <DESCRIPTION>
+     Lower bound of times represented in the data set, as MJD
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="t_max" datatype="double" name="t_max" ucd="time.end;obs.exposure" unit="d" utype="obscore:char.timeaxis.coverage.bounds.limits.stoptime" xtype="mjd">
+    <DESCRIPTION>
+     Upper bound of times represented in the data set, as MJD
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="t_exptime" datatype="float" name="t_exptime" ucd="time.duration;obs.exposure" unit="s" utype="obscore:char.timeaxis.coverage.support.extent">
+    <DESCRIPTION>
+     Total exposure time
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="t_resolution" datatype="float" name="t_resolution" ucd="time.resolution" unit="s" utype="obscore:char.timeaxis.resolution.refval.value">
+    <DESCRIPTION>
+     Minimal significant time interval along the time axis
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="em_min" datatype="double" name="em_min" ucd="em.wl;stat.min" unit="m" utype="obscore:char.spectralaxis.coverage.bounds.limits.lolimit">
+    <DESCRIPTION>
+     Minimal wavelength represented within the data set
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="em_max" datatype="double" name="em_max" ucd="em.wl;stat.max" unit="m" utype="obscore:char.spectralaxis.coverage.bounds.limits.hilimit">
+    <DESCRIPTION>
+     Maximal wavelength represented within the data set
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="em_res_power" datatype="double" name="em_res_power" ucd="spect.resolution" utype="obscore:char.spectralaxis.resolution.resolpower.refval">
+    <DESCRIPTION>
+     Spectral resolving power lambda/delta lamda
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="o_ucd" arraysize="*" datatype="char" name="o_ucd" ucd="meta.ucd" utype="obscore:char.observableaxis.ucd">
+    <DESCRIPTION>
+     UCD for the product's observable
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="pol_states" arraysize="*" datatype="char" name="pol_states" ucd="meta.code;phys.polarization" utype="obscore:Char.PolarizationAxis.stateList">
+    <DESCRIPTION>
+     List of polarization states in the data set
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="facility_name" arraysize="*" datatype="char" name="facility_name" ucd="meta.id;instr.tel" utype="obscore:Provenance.ObsConfig.facility.name">
+    <DESCRIPTION>
+     Name of the facility at which data was taken
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="instrument_name" arraysize="*" datatype="char" name="instrument_name" ucd="meta.id;instr" utype="obscore:Provenance.ObsConfig.instrument.name">
+    <DESCRIPTION>
+     Name of the instrument that produced the data
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="s_xel1" datatype="long" name="s_xel1" ucd="meta.number" utype="obscore:Char.SpatialAxis.numBins1">
+    <DESCRIPTION>
+     Number of elements (typically pixels) along the first spatial
+     axis.
+    </DESCRIPTION>
+    <VALUES null="-1"/>
+   </FIELD>
+   <FIELD ID="s_xel2" datatype="long" name="s_xel2" ucd="meta.number" utype="obscore:Char.SpatialAxis.numBins2">
+    <DESCRIPTION>
+     Number of elements (typically pixels) along the second spatial
+     axis.
+    </DESCRIPTION>
+    <VALUES null="-1"/>
+   </FIELD>
+   <FIELD ID="t_xel" datatype="long" name="t_xel" ucd="meta.number" utype="obscore:Char.TimeAxis.numBins">
+    <DESCRIPTION>
+     Number of elements (typically pixels) along the time axis.
+    </DESCRIPTION>
+    <VALUES null="-1"/>
+   </FIELD>
+   <FIELD ID="em_xel" datatype="long" name="em_xel" ucd="meta.number" utype="obscore:Char.SpectralAxis.numBins">
+    <DESCRIPTION>
+     Number of elements (typically pixels) along the spectral axis.
+    </DESCRIPTION>
+    <VALUES null="-1"/>
+   </FIELD>
+   <FIELD ID="pol_xel" datatype="long" name="pol_xel" ucd="meta.number" utype="obscore:Char.PolarizationAxis.numBins">
+    <DESCRIPTION>
+     Number of elements (typically pixels) along the polarization
+     axis.
+    </DESCRIPTION>
+    <VALUES null="-1"/>
+   </FIELD>
+   <FIELD ID="s_pixel_scale" datatype="double" name="s_pixel_scale" ucd="phys.angSize;instr.pixel" unit="arcsec" utype="obscore:Char.SpatialAxis.Sampling.RefVal.SamplingPeriod">
+    <DESCRIPTION>
+     Sampling period in world coordinate units along the spatial axis
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="em_ucd" arraysize="*" datatype="char" name="em_ucd" ucd="meta.ucd" utype="obscore:Char.SpectralAxis.ucd">
+    <DESCRIPTION>
+     Nature of the product's spectral axis (typically, em.freq, em.wl,
+     or em.energy)
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="preview" arraysize="*" datatype="char" name="preview" ucd="meta.ref.url;datalink.preview">
+    <DESCRIPTION>
+     URL of a preview (low-resolution, quick-to-retrieve
+     representation) of the data.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="source_table" arraysize="*" datatype="char" name="source_table" ucd="meta.id;meta.table">
+    <DESCRIPTION>
+     Name of a TAP-queriable table this data originates from. This
+     source table usually provides more information on the the data
+     than what is given in obscore. See the TAP_SCHEMA of the
+     originating TAP server for details.
+    </DESCRIPTION>
+   </FIELD>
+   <GROUP utype="stc:CatalogEntryLocation">
+    <PARAM ID="CoordFlavor" arraysize="*" datatype="char" name="CoordFlavor" utype="stc:AstroCoordSystem.SpaceFrame.CoordFlavor" value="SPHERICAL"/>
+    <PARAM ID="CoordRefFrame" arraysize="*" datatype="char" name="CoordRefFrame" utype="stc:AstroCoordSystem.SpaceFrame.CoordRefFrame" value="ICRS"/>
+    <PARAM ID="URI" arraysize="*" datatype="char" name="URI" utype="stc:DataModel.URI" value="http://www.ivoa.net/xml/STC/stc-v1.30.xsd"/>
+    <FIELDref ref="s_region" utype="stc:AstroCoordArea.Polygon"/>
+   </GROUP>
+   <GROUP ID="ndgplipwptpa" name="note-calib">
+    <DESCRIPTION>
+     The calib_level flag takes the following values:  ===
+     ===========================================================  0
+     Raw Instrumental data requiring instrument-specific tools  1
+     Instrumental data processable with standard tools  2  Calibrated,
+     science-ready data without instrument signature  3  Enhanced data
+     products (e.g., mosaics) ===
+     ===========================================================
+    </DESCRIPTION>
+    <FIELDref ref="calib_level"/>
+   </GROUP>
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>spectrum</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD>DFBS spectra</TD>
+      <TD>dfbsspec/q/fbs1196-043544.21+714212.7</TD>
+      <TD>DFBSJ043544.21+714212.7 spectrum from fbs1196</TD>
+      <TD>ivo://org.gavo.dc/~?dfbsspec/q/fbs1196-043544.21+714212.7</TD>
+      <TD/>
+      <TD>http://dc.zah.uni-heidelberg.de/getproduct/dfbsspec/q/fbs1196-043544.21%2B714212.7</TD>
+      <TD>application/x-votable+xml</TD>
+      <TD>19</TD>
+      <TD/>
+      <TD/>
+      <TD>68.9342125000005</TD>
+      <TD>71.70355</TD>
+      <TD>0.000555555555555556</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>3.19900010481433e-07</TD>
+      <TD>6.9e-07</TD>
+      <TD>63.9800033569336</TD>
+      <TD>phot.flux.density</TD>
+      <TD/>
+      <TD>Byurakan Astrophysical Observatory BAO</TD>
+      <TD>Byurakan 1m Schmidt</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD/>
+      <TD>126</TD>
+      <TD/>
+      <TD/>
+      <TD>em.wl</TD>
+      <TD>http://dc.zah.uni-heidelberg.de/getproduct/dfbsspec/q/fbs1196-043544.21%2B714212.7?preview=True</TD>
+      <TD>dfbsspec.ssa</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+  </TABLE>
+ </RESOURCE>
+</VOTABLE>
