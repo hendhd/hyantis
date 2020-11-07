@@ -1,0 +1,1946 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Produced with astropy.io.votable version 3.1.2
+     http://www.astropy.org/ -->
+<VOTABLE version="1.4" xmlns="http://www.ivoa.net/xml/VOTable/v1.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.4">
+ <RESOURCE type="results">
+  <INFO ID="server" name="server" value="http://dc.zah.uni-heidelberg.de"/>
+  <INFO ID="sql_query" name="sql_query" value="SELECT DISTINCT rr.interface.ivoid, rr.interface.cap_index, rr.interface.intf_index, rr.interface.intf_type, rr.interface.intf_role, rr.interface.std_version, rr.interface.query_type, rr.interface.result_type, rr.interface.wsdl_url, rr.interface.url_use, rr.interface.access_url, rr.interface.mirror_url, rr.interface.authenticated_only, rr.interface.security_method_id, rr.capability.ivoid, rr.capability.cap_index, rr.capability.cap_type, rr.capability.cap_description, rr.capability.standard_id, rr.resource.ivoid, rr.resource.res_type, rr.resource.created, rr.resource.short_name, rr.resource.res_title, rr.resource.updated, rr.resource.content_level, rr.resource.res_description, rr.resource.reference_url, rr.resource.creator_seq, rr.resource.content_type, rr.resource.source_format, rr.resource.source_value, rr.resource.res_version, rr.resource.region_of_regard, rr.resource.waveband, rr.resource.rights, rr.resource.rights_uri, rr.resource.harvested_from FROM rr.capability NATURAL JOIN rr.interface  NATURAL JOIN rr.resource  WHERE intf_role = &apos;std&apos; AND standard_id IN ( &apos;ivo://ivoa.net/std/conesearch&apos; , &apos;ivo://ivoa.net/std/sia&apos; , &apos;ivo://ivoa.net/std/ssa&apos; , &apos;ivo://ivoa.net/std/slap&apos; , &apos;ivo://ivoa.net/std/tap&apos; ) AND rr.interface.ivoid IN ( SELECT idet.ivoid FROM rr.res_detail AS idet WHERE idet.detail_xpath = &apos;/capability/dataModel/@ivo-id&apos; AND (LOWER(idet.detail_value) like &apos;ivo://ivoa.net/std/obscore%%&apos;) ) LIMIT 16000000"/>
+  <INFO ID="query" name="query" value="SELECT DISTINCT rr.interface.*, rr.capability.*, rr.resource.*     FROM rr.capability     NATURAL JOIN rr.interface     NATURAL JOIN rr.resource     WHERE intf_role = &apos;std&apos; AND              standard_id IN (                 &apos;ivo://ivoa.net/std/conesearch&apos;,                 &apos;ivo://ivoa.net/std/sia&apos;,                 &apos;ivo://ivoa.net/std/ssa&apos;,                 &apos;ivo://ivoa.net/std/slap&apos;,                 &apos;ivo://ivoa.net/std/tap&apos;             )          AND              rr.interface.ivoid IN (                 SELECT idet.ivoid FROM rr.res_detail as idet                 WHERE idet.detail_xpath = &apos;/capability/dataModel/@ivo-id&apos;                 AND 1 = ivo_nocasematch(                     idet.detail_value, &apos;ivo://ivoa.net/std/obscore%&apos;)             )              "/>
+  <INFO ID="src_res" name="src_res" value="Contains traces from resource rr/q">Tables containing the information in the IVOA Registry. To query
+these tables, use `our TAP service`_.
+
+For more information and example queries, see the `RegTAP
+specification`_.
+
+.. _our TAP service: /__system__/tap/run/info .. _RegTAP
+specification: http://www.ivoa.net/documents/RegTAP/</INFO>
+  <INFO ID="src_table" name="src_table" value="Contains traces from table rr.interface">Information on access modes of a capability.</INFO>
+  <INFO ID="src_res" name="src_res" value="Contains traces from resource rr/q">Tables containing the information in the IVOA Registry. To query
+these tables, use `our TAP service`_.
+
+For more information and example queries, see the `RegTAP
+specification`_.
+
+.. _our TAP service: /__system__/tap/run/info .. _RegTAP
+specification: http://www.ivoa.net/documents/RegTAP/</INFO>
+  <INFO ID="src_table" name="src_table" value="Contains traces from table rr.capability">Pieces of behaviour of a resource.</INFO>
+  <INFO ID="src_res" name="src_res" value="Contains traces from resource rr/q">Tables containing the information in the IVOA Registry. To query
+these tables, use `our TAP service`_.
+
+For more information and example queries, see the `RegTAP
+specification`_.
+
+.. _our TAP service: /__system__/tap/run/info .. _RegTAP
+specification: http://www.ivoa.net/documents/RegTAP/</INFO>
+  <INFO ID="src_table" name="src_table" value="Contains traces from table rr.res_detail">XPath-value pairs for members of resource or capability and their
+derivations that are less used and/or from VOResource extensions. The
+pairs refer to a resource if cap_index is NULL, to the referenced
+capability otherwise.</INFO>
+  <INFO ID="src_res" name="src_res" value="Contains traces from resource rr/q">Tables containing the information in the IVOA Registry. To query
+these tables, use `our TAP service`_.
+
+For more information and example queries, see the `RegTAP
+specification`_.
+
+.. _our TAP service: /__system__/tap/run/info .. _RegTAP
+specification: http://www.ivoa.net/documents/RegTAP/</INFO>
+  <INFO ID="src_table" name="src_table" value="Contains traces from table rr.resource">The resources (like services, data collections, organizations)
+present in this registry.</INFO>
+  <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK">Query successful</INFO>
+  <INFO ID="citation" name="citation" ucd="meta.bib" value="http://dc.zah.uni-heidelberg.de/tableinfo/rr.interface">For advice on how to cite the resource(s) that contributed to this result, see http://dc.zah.uni-heidelberg.de/tableinfo/rr.interface</INFO>
+  <INFO ID="citation" name="citation" ucd="meta.bib" value="http://dc.zah.uni-heidelberg.de/tableinfo/rr.capability">For advice on how to cite the resource(s) that contributed to this result, see http://dc.zah.uni-heidelberg.de/tableinfo/rr.capability</INFO>
+  <INFO ID="citation" name="citation" ucd="meta.bib" value="http://dc.zah.uni-heidelberg.de/tableinfo/rr.res_detail">For advice on how to cite the resource(s) that contributed to this result, see http://dc.zah.uni-heidelberg.de/tableinfo/rr.res_detail</INFO>
+  <INFO ID="citation" name="citation" ucd="meta.bib" value="http://dc.zah.uni-heidelberg.de/tableinfo/rr.resource">For advice on how to cite the resource(s) that contributed to this result, see http://dc.zah.uni-heidelberg.de/tableinfo/rr.resource</INFO>
+  <TABLE ID="capability_interface_resource" name="capability_interface_resource">
+   <FIELD ID="ivoid" arraysize="*" datatype="char" name="ivoid" utype="xpath:/identifier">
+    <DESCRIPTION>
+     The parent resource.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="cap_index" datatype="short" name="cap_index">
+    <DESCRIPTION>
+     The index of the parent capability.
+    </DESCRIPTION>
+    <VALUES null="-32768"/>
+   </FIELD>
+   <FIELD ID="intf_index" datatype="short" name="intf_index">
+    <DESCRIPTION>
+     An arbitrary identifier for the interfaces of a resource.
+    </DESCRIPTION>
+    <VALUES null="-32768"/>
+   </FIELD>
+   <FIELD ID="intf_type" arraysize="*" datatype="char" name="intf_type" utype="xpath:@xsi:type">
+    <DESCRIPTION>
+     The type of the interface (vr:webbrowser, vs:paramhttp, etc).
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="intf_role" arraysize="*" datatype="char" name="intf_role" utype="xpath:@role">
+    <DESCRIPTION>
+     An identifier for the role the interface plays in the particular
+     capability. If the value is equal to "std" or begins with "std:",
+     then the interface refers to a standard interface defined by the
+     standard referred to by the capability's standardID attribute.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="std_version" arraysize="*" datatype="char" name="std_version" utype="xpath:@version">
+    <DESCRIPTION>
+     The version of a standard interface specification that this
+     interface complies with. When the interface is provided in the
+     context of a Capability element, then the standard being refered
+     to is the one identified by the Capability's standardID element.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="query_type" arraysize="*" datatype="char" name="query_type" utype="xpath:queryType">
+    <DESCRIPTION>
+     Hash-joined list of expected HTTP method (get or post) supported
+     by the service.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="result_type" arraysize="*" datatype="char" name="result_type" utype="xpath:resultType">
+    <DESCRIPTION>
+     The MIME type of a document returned in the HTTP response.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="wsdl_url" arraysize="*" datatype="char" name="wsdl_url" utype="xpath:wsdlURL">
+    <DESCRIPTION>
+     The location of the WSDL that describes this Web Service. If
+     NULL, the location can be assumed to be the accessURL with
+     '?wsdl' appended.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="url_use" arraysize="*" datatype="char" name="url_use" utype="xpath:accessURL/@use">
+    <DESCRIPTION>
+     A flag indicating whether this should be interpreted as a base
+     URL ('base'), a full URL ('full'), or a URL to a directory that
+     will produce a listing of files ('dir').
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="access_url" arraysize="*" datatype="char" name="access_url" utype="xpath:accessURL">
+    <DESCRIPTION>
+     The URL at which the interface is found.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="mirror_url" arraysize="*" datatype="char" name="mirror_url" utype="xpath:mirrorURL">
+    <DESCRIPTION>
+     Secondary access URLs of this interface, separated by hash
+     characters.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="authenticated_only" datatype="short" name="authenticated_only">
+    <DESCRIPTION>
+     A flag for whether an interface is available for anonymous use
+     (=0) or only authenticated clients are served (=1).
+    </DESCRIPTION>
+    <VALUES null="-32768"/>
+   </FIELD>
+   <FIELD ID="security_method_id" arraysize="*" datatype="char" name="security_method_id" utype="not mapped">
+    <DESCRIPTION>
+     This column was mentioned in drafts of RegTAP 1.1 but was
+     abandoned before RegTAP 1.1 REC. Do not use any more. This is
+     just here to avoid a flag day for clients that experimentally
+     used this column. This is always NULL here.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="ivoid_" arraysize="*" datatype="char" name="ivoid_" utype="xpath:/identifier">
+    <DESCRIPTION>
+     The parent resource.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="cap_index_" datatype="short" name="cap_index_">
+    <DESCRIPTION>
+     An arbitrary identifier of this capability within the resource.
+    </DESCRIPTION>
+    <VALUES null="-32768"/>
+   </FIELD>
+   <FIELD ID="cap_type" arraysize="*" datatype="char" name="cap_type" utype="xpath:@xsi:type">
+    <DESCRIPTION>
+     The type of capability covered here. If looking for endpoints
+     implementing a certain standard, you should not use this column
+     but rather match against standard_id.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="cap_description" arraysize="*" datatype="unicodeChar" name="cap_description" utype="xpath:description">
+    <DESCRIPTION>
+     A human-readable description of what this capability provides as
+     part of the over-all service.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="standard_id" arraysize="*" datatype="char" name="standard_id" utype="xpath:@standardID">
+    <DESCRIPTION>
+     A URI for a standard this capability conforms to.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="ivoid__" arraysize="*" datatype="char" name="ivoid__" utype="xpath:identifier">
+    <DESCRIPTION>
+     Unambiguous reference to the resource conforming to the IVOA
+     standard for identifiers.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="res_type" arraysize="*" datatype="char" name="res_type" utype="xpath:@xsi:type">
+    <DESCRIPTION>
+     Resource type (something like vs:datacollection,
+     vs:catalogservice, etc).
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="created" arraysize="*" datatype="char" name="created" utype="xpath:@created" xtype="timestamp">
+    <DESCRIPTION>
+     The UTC date and time this resource metadata description was
+     created.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="short_name" arraysize="*" datatype="char" name="short_name" utype="xpath:shortName">
+    <DESCRIPTION>
+     A short name or abbreviation given to something, for presentation
+     in space-constrained fields (up to 16 characters).
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="res_title" arraysize="*" datatype="unicodeChar" name="res_title" utype="xpath:title">
+    <DESCRIPTION>
+     The full name given to the resource.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="updated" arraysize="*" datatype="char" name="updated" utype="xpath:@updated" xtype="timestamp">
+    <DESCRIPTION>
+     The UTC date this resource metadata description was last updated.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="content_level" arraysize="*" datatype="char" name="content_level" utype="xpath:content/contentLevel">
+    <DESCRIPTION>
+     A hash-separated list of content levels specifying the intended
+     audience.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="res_description" arraysize="*" datatype="unicodeChar" name="res_description" utype="xpath:content/description">
+    <DESCRIPTION>
+     An account of the nature of the resource.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="reference_url" arraysize="*" datatype="char" name="reference_url" utype="xpath:content/referenceURL">
+    <DESCRIPTION>
+     URL pointing to a human-readable document describing this
+     resource.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="creator_seq" arraysize="*" datatype="unicodeChar" name="creator_seq" utype="xpath:curation/creator/name">
+    <DESCRIPTION>
+     The creator(s) of the resource in the order given by the resource
+     record author, separated by semicolons.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="content_type" arraysize="*" datatype="char" name="content_type" utype="xpath:content/type">
+    <DESCRIPTION>
+     A hash-separated list of natures or genres of the content of the
+     resource.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="source_format" arraysize="*" datatype="char" name="source_format" utype="xpath:content/source/@format">
+    <DESCRIPTION>
+     The format of source_value. This, in particular, can be
+     ``bibcode''.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="source_value" arraysize="*" datatype="unicodeChar" name="source_value" utype="xpath:content/source">
+    <DESCRIPTION>
+     A bibliographic reference from which the present resource is
+     derived or extracted.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="res_version" arraysize="*" datatype="char" name="res_version" utype="xpath:curation/version">
+    <DESCRIPTION>
+     Label associated with creation or availablilty of a version of a
+     resource.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="region_of_regard" datatype="float" name="region_of_regard" unit="deg" utype="xpath:coverage/regionOfRegard">
+    <DESCRIPTION>
+     A single numeric value representing the angle, given in decimal
+     degrees, by which a positional query against this resource should
+     be ``blurred'' in order to get an appropriate match.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="waveband" arraysize="*" datatype="char" name="waveband" utype="xpath:coverage/waveband">
+    <DESCRIPTION>
+     A hash-separated list of regions of the electro-magnetic spectrum
+     that the resource's spectral coverage overlaps with.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="rights" arraysize="*" datatype="char" name="rights" utype="xpath:/rights">
+    <DESCRIPTION>
+     A statement of usage conditions (license, attribution, embargo,
+     etc).
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="rights_uri" arraysize="*" datatype="char" name="rights_uri" utype="xpath:/rights/@rightsURI">
+    <DESCRIPTION>
+     A URI identifying a license the data is made available under.
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="harvested_from" arraysize="*" datatype="char" name="harvested_from">
+    <DESCRIPTION>
+     IVOID of the registry this record came from.
+    </DESCRIPTION>
+   </FIELD>
+   <GROUP ID="ndgplohhiiua" name="note-cl">
+    <DESCRIPTION>
+     The terms are taken from the vocabulary
+     http://ivoa.net/rdf/voresource/content_level.
+    </DESCRIPTION>
+    <FIELDref ref="content_level"/>
+   </GROUP>
+   <GROUP ID="ndgplohhiigt" name="note-ct">
+    <DESCRIPTION>
+     The terms are taken from the vocabulary
+     http://ivoa.net/rdf/voresource/content_type.
+    </DESCRIPTION>
+    <FIELDref ref="content_type"/>
+   </GROUP>
+   <GROUP ID="ndgplohhieht" name="note-w">
+    <DESCRIPTION>
+     The allowed values for waveband include: Radio, Millimeter,
+     Infrared, Optical, UV, EUV, X-ray, Gamma-ray.
+    </DESCRIPTION>
+    <FIELDref ref="waveband"/>
+   </GROUP>
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>ivo://aip.gavo.org/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://gavo.aip.de/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://aip.gavo.org/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://aip.gavo.org/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>AIP GAVO TAP</TD>
+      <TD>AIP DaCHS TAP service</TD>
+      <TD>2016-07-14T13:53:12</TD>
+      <TD/>
+      <TD>The AIP DaCHS's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: dens256, fof, redshifts from the bolshoi schema, columns, services, tables from the glots schema, fof, fofmtree, fofparticles, particles85, redshifts, treesnapnums from the mdr1 schema, rave_dr4 from the ravedr4 schema, alt_identifier, authorities, capability, interface, intf_param, registries, relationship, res_date, res_detail, res_role, res_schema, res_subject, res_table, resource, stc_spatial, stc_spectral, stc_temporal, table_column, validation from the rr schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema.</TD>
+      <TD>http://gavo.aip.de/__system__/tap/run/info</TD>
+      <TD>The GAVO data center team</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://aip.gavo.org/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://archive.stsci.edu/caomtap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://vao.stsci.edu/CAOMTAP/TapService.aspx</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://archive.stsci.edu/caomtap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://archive.stsci.edu/caomtap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2017-08-25T16:57:02</TD>
+      <TD>STScI CAOMTAP</TD>
+      <TD>MAST STScI CAOM and ObsCore TAP service</TD>
+      <TD>2020-02-12T19:23:12</TD>
+      <TD/>
+      <TD>The MAST Archive at STScI TAP end point for observational data, saved in the Common Archive Data Model format and made available through the ObsCore limited view.  
+
+The Table Access Protocol (TAP) lets you execute queries against our database tables, and inspect various metadata.  Upload is not currently supported.
+A partial list of missions and projects with data available through the CAOMTAP service are: BEFS, EUVE, FUSE, GALEX, HLA, HST, HUT, IUE, K2, KEPLER, PS1 (PanSTARRS 1), SPITZER_SHA, SWIFT, TESS, TUES, WUPPE.
+    
+Tables exposed through this endpoint include the ObsCore (version 1.1) view of our CAOM (version 2.0) database, as well as all other CAOM tables</TD>
+      <TD>http://vao.stsci.edu/CAOMTAP/querymanager.html</TD>
+      <TD>Space Telescope Institute MAST archive</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://archive.stsci.edu/nvoregistry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://astro.ucl.ac.uk/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://astroweb.projects.phys.ucl.ac.uk:8000/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://astro.ucl.ac.uk/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://astro.ucl.ac.uk/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>UCL Astro TAP</TD>
+      <TD>UCL DaCHS server TAP service</TD>
+      <TD>2017-03-08T14:59:34</TD>
+      <TD/>
+      <TD>The UCL DaCHS server's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, epn_core from the jasmin schema, emptyobscore, obscore from the ivoa schema, epn_core from the mdisc schema.</TD>
+      <TD>http://astroweb.projects.phys.ucl.ac.uk:8000/__system__/tap/run/info</TD>
+      <TD>Patrick Guio</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://astro.ucl.ac.uk/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://astron.nl/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>https://vo.astron.nl/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://astron.nl/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://astron.nl/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>ASTRON VO TAP</TD>
+      <TD>The VO @ ASTRON TAP service</TD>
+      <TD>2020-09-01T12:51:50</TD>
+      <TD/>
+      <TD>The The VO @ ASTRON's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: main from the lbcs schema, main, mom0 from the sauron schema, img_main, main from the lofartier1 schema, img_main, main from the tgssadr schema, main, msssvf_img_main from the mvf schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, hetdex_images, img_main from the hetdex schema, img_main from the msss schema, obscore from the ivoa schema, beam_cubes, calibrated_visibilities, continuum_images, flux_cal_visibilities, pol_cal_visibilities, pol_cubes, raw_visibilities, spectral_cubes from the apertif_dr1 schema.</TD>
+      <TD>https://vo.astron.nl/__system__/tap/run/info</TD>
+      <TD>ASTRON</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>radio</TD>
+      <TD/>
+      <TD/>
+      <TD>ivo://astron.nl/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://asu.cas.cz/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://vos2.asu.cas.cz/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://asu.cas.cz/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://asu.cas.cz/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>AIASCR TAP</TD>
+      <TD>AIASCR VO Services TAP service</TD>
+      <TD>2017-04-19T08:23:36</TD>
+      <TD/>
+      <TD>The AIASCR VO Services's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: objcat, objects_observed, objobs_complete, objobs_lightcurves, observation_info from the bextract schema, dim_exposure, dim_observation_objcat, exposure, objcat, objobs_complete, objobs_lightcurves, observation, observation_objcat from the bextract_jan16 schema, reduced_images from the dk154_reduced schema, exposure, objcat, objobs_complete, objobs_lightcurves, observation from the bextract_jan15 schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, dim_exposure, dim_observation_objcat, exposure, objcat, objobs_complete, objobs_lightcurves, objobs_lightcurves_ssap, observation, observation_objcat from the bextract_apr18 schema, data from the ccd700 schema, dim_exposure, dim_observation_objcat, exposure, objcat, objobs_complete, objobs_lightcurves, observation, observation_objcat from the bextract_jan15_v2 schema, emptyobscore, obscore from the ivoa schema, data from the heros schema, reduced_images from the dk154_reduced_jan18 schema, dim_exposure, dim_observation_objcat, exposure, objcat, objobs_complete, objobs_lightcurves, observation, observation_objcat from the bextract_jul15 schema, dim_exposure, dim_observation_objcat, exposure, objcat, objobs_complete, objobs_lightcurves, objobs_lightcurves_ssap, observation, observation_objcat from the bextract_jul16 schema, data from the lamost_dr2 schema, data from the lamost_dr5 schema, data from the lamost_dr3 schema, data from the lamost schema, data from the lamost_dr1 schema, dim_exposure, dim_observation_objcat, exposure, objcat, objobs_complete, objobs_lightcurves, objobs_lightcurves_ssap, observation, observation_objcat from the bextract_jan18 schema, dim_exposure, dim_observation_objcat, exposure, objcat, objobs_complete, objobs_lightcurves, objobs_lightcurves_ssap, observation, observation_objcat from the bextract_dec17 schema, raw_images from the dk154_rawdata schema.</TD>
+      <TD>http://vos2.asu.cas.cz/__system__/tap/run/info</TD>
+      <TD>Stellar Department, Czech Acad. of Sciences</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://asu.cas.cz/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://au.csiro/atoavo/tap</TD>
+      <TD>4</TD>
+      <TD>4</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD>get</TD>
+      <TD>application/xml</TD>
+      <TD/>
+      <TD>base</TD>
+      <TD>https://atoavo.atnf.csiro.au/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://au.csiro/atoavo/tap</TD>
+      <TD>4</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://au.csiro/atoavo/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2015-11-16T09:56:31</TD>
+      <TD>CSIRO ATOA TAP</TD>
+      <TD>CSIRO Australia Telescope Online Archive TAP Service</TD>
+      <TD>2020-07-17T16:23:58</TD>
+      <TD>university#research</TD>
+      <TD>Table Access Protocol service for accessing Australia Telescope Online Archive</TD>
+      <TD>http://www.atnf.csiro.au/observers/data/index.html</TD>
+      <TD>CSIRO</TD>
+      <TD>other</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://au.csiro/org.astrogrid.registry.registryservice</TD>
+     </TR>
+     <TR>
+      <TD>ivo://au.csiro/casda/tap</TD>
+      <TD>4</TD>
+      <TD>4</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD>get</TD>
+      <TD>application/xml</TD>
+      <TD/>
+      <TD>base</TD>
+      <TD>https://casda.csiro.au/casda_vo_tools/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://au.csiro/casda/tap</TD>
+      <TD>4</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://au.csiro/casda/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2015-11-16T09:56:31</TD>
+      <TD>CSIRO ASKAP TAP</TD>
+      <TD>CSIRO ASKAP Science Data Archive TAP Service</TD>
+      <TD>2018-11-09T08:39:00</TD>
+      <TD>university#research</TD>
+      <TD>Table Access Protocol service for accessing catalogues from ASKAP radio astronomy observations</TD>
+      <TD>http://www.atnf.csiro.au/observers/data/index.html</TD>
+      <TD>CSIRO</TD>
+      <TD>other</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>radio</TD>
+      <TD/>
+      <TD/>
+      <TD>ivo://au.csiro/org.astrogrid.registry.registryservice</TD>
+     </TR>
+     <TR>
+      <TD>ivo://byu.arvo/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://arvo-registry.sci.am/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://byu.arvo/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://byu.arvo/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>ArVO Byu TAP</TD>
+      <TD>ArVO Byurakan TAP service</TD>
+      <TD>2020-02-21T09:33:52</TD>
+      <TD/>
+      <TD>The ArVO Byurakan's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, main from the dfbsplates schema, spectra, ssa from the dfbsspec schema, obscore from the ivoa schema.</TD>
+      <TD>http://arvo-registry.sci.am/__system__/tap/run/info</TD>
+      <TD>Areg Mickaelian</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://byu.arvo/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://cadc.nrc.ca/argus</TD>
+      <TD>4</TD>
+      <TD>4</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/argus</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://cadc.nrc.ca/argus</TD>
+      <TD>4</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://cadc.nrc.ca/argus</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2019-09-20T16:00:10</TD>
+      <TD/>
+      <TD>CADC Table Query (TAP) Service</TD>
+      <TD>2019-09-20T16:00:10</TD>
+      <TD/>
+      <TD/>
+      <TD>https://www.cadc-ccda-hia-iha.nrc-cnrc.gc.ca/argus</TD>
+      <TD/>
+      <TD>other</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://cadc.nrc.ca/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://chivo/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>https://vo.chivo.cl/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://chivo/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://chivo/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>ChiVO TAP</TD>
+      <TD>ChiVO TAP service</TD>
+      <TD>2017-10-20T18:56:31</TD>
+      <TD/>
+      <TD>The ChiVO's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: alma_fits from the alma_fits schema, m83_obs from the m83_test1 schema, m83_obs from the m83_data schema, hd163296band6 from the hd163296band6 schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, main from the arihip schema, main from the tgas schema, dr1 from the gaia schema, data from the openngc schema, emptyobscore, obscore from the ivoa schema.</TD>
+      <TD>https://vo.chivo.cl/__system__/tap/run/info</TD>
+      <TD>Equipo ChiVO</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://chivo/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://eso.org/tap_obs</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://archive.eso.org/tap_obs</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://eso.org/tap_obs</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://eso.org/tap_obs</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2018-05-24T09:00:00</TD>
+      <TD>ESO TAP_OBS</TD>
+      <TD>ESO TAP_OBS: a TAP service to browse and access raw and reduced data, and to query the ambient measurements, of the La Silla Paranal Observatory.</TD>
+      <TD>2018-07-02T11:36:53.692000</TD>
+      <TD/>
+      <TD>TAP_OBS is the ESO Science Archive TAP endpoint for observations (raw and reduced data) and ambient measurements (atmospheric seeing, turbulence, water vapour, relative humidity, air pressure, etc.) taken at the La Silla Paranal Observatory, including the Chajnantor (APEX) data.
+        The Table Access Protocol (TAP) lets you execute queries against our database tables, and inspect various metadata. Table Upload is not currently supported, though it is foreseen for a next release.
+        The IVOA ObsCore standard service is also provided (table name: ivoa.ObsCore), but currently only for reduced data.
+        Other tables exposed are the dbo.raw describing all the LPO observations, the ambient tables (in the asm schema), plus the provenance table to close the loop between the raw and the reduced data, but also to describe the relationships between reduced data (e.g. a source table originating from a reduced image, etc.).
+
+        A sibling service (TAP_CAT, endpoint: http://archive.eso.org/tap_cat) exists and can be used to query the astronomical catalogs produced by the principal investigators of ESO programmes (ESO public surveys included).</TD>
+      <TD>http://archive.eso.org/cms/eso-data/programmatic-access.html</TD>
+      <TD>ESO</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://fu-berlin.planet.hrsc/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://dachs.planet.fu-berlin.de/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://fu-berlin.planet.hrsc/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://fu-berlin.planet.hrsc/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>PRSFUB TAP</TD>
+      <TD>Planetary web services @ FUB TAP service</TD>
+      <TD>2018-07-17T11:01:55</TD>
+      <TD/>
+      <TD>The Planetary web services @ FUB's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, epn_core from the hrsc3nd schema, emptyobscore, obscore from the ivoa schema.</TD>
+      <TD>http://dachs.planet.fu-berlin.de/__system__/tap/run/info</TD>
+      <TD>Sebastian Walter</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://fu-berlin.planet.hrsc/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://ia2.inaf.it/hosted/laurino2011/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>full</TD>
+      <TD>http://ia2-tap.oats.inaf.it:8080/wgetap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://ia2.inaf.it/hosted/laurino2011/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://ia2.inaf.it/hosted/laurino2011/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2013-02-20T08:20:59</TD>
+      <TD>wgesdsstap</TD>
+      <TD>Laurino et al 2011 Catalog of WGE photometric redshifts for SDSS candidate qsos and galaxies</TD>
+      <TD>2019-03-13T11:36:01.618000</TD>
+      <TD>research</TD>
+      <TD>The Sloan Digital Sky Survey (SDSS) has observed more than a quarter of the sky over eight years of operations, obtaining multicolor photometry and spectroscopy for ~ 1 million of galaxies. A catalog of photometric redshifts for ~ 2 millions quasars with magnitude r &lt; 20.7 extracted from the SDSS DR7 dataset (D'Abrusco et al, 2009) is provided here. The photometric redshifts and the uncertainty of the estimates for each sources have been calculated using the Weak Gated Expert (WGE) method. The WGE (Laurino et al., submitted to MNRAS) is based on the exploitation of the spectroscopic redshifts for a subset of photometric sources and derives photometric redshifts through a combination of data mining techniques. This method can be applied to different classes of extragalactic sources and is scalable. A set of observational parameters used for the evaluation of photometric redshifts, the estimated photometric redshifts values and some of the most common observational parameters retrieved from the SDSS database have been included in the catalog for the sake of simplicity.</TD>
+      <TD>http://voneural.na.infn.it/qso.html</TD>
+      <TD>IA2</TD>
+      <TD>catalog</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>public</TD>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://ia2.inaf.it/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://vo-node1.iaps.inaf.it/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://ia2.inaf.it/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://ia2.inaf.it/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>IAPS TAP</TD>
+      <TD>IAPS TAP SERVICES TAP service</TD>
+      <TD>2016-11-09T12:30:36</TD>
+      <TD/>
+      <TD>The IAPS TAP SERVICES's TAP end point. The Table Access
+        Protocol (TAP) lets you execute queries against our database tables,
+        inspect various metadata, and upload your own data. It is thus the
+        VO's premier way to access public data holdings.
+
+        Tables exposed through this endpoint include: epn_core from the nnn schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, epn_core from the ndc schema, epn_core from the ndcs schema, epn_core from the vir schema, epn_core from the vir_datalink schema, epn_core from the cemls schema, emptyobscore, obscore from the ivoa schema.</TD>
+      <TD>http://vo-node1.iaps.inaf.it/__system__/tap/run/info</TD>
+      <TD>VOIAPS team</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://iap/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://dorotka.ufa.cas.cz/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://iap/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://iap/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>IAP TAP</TD>
+      <TD>IAP - DaCHS Services TAP service</TD>
+      <TD>2020-01-09T07:54:53</TD>
+      <TD/>
+      <TD>The IAP - DaCHS Services's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: epn_core from the thmsm schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, epn_core from the cpstasm schema, epn_core from the thmwp3 schema.</TD>
+      <TD>http://dorotka.ufa.cas.cz/__system__/tap/run/info</TD>
+      <TD>David Pisa</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://iap/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://jvo/alma</TD>
+      <TD>3</TD>
+      <TD>3</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.0</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>http://jvo.nao.ac.jp/skynode/do/tap/alma</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://jvo/alma</TD>
+      <TD>3</TD>
+      <TD>tr:tableaccess</TD>
+      <TD>JVO ALMA FITS data archive (TAP service)</TD>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://jvo/alma</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2013-02-28T05:17:00</TD>
+      <TD>ALMA</TD>
+      <TD>ALMA VO Service</TD>
+      <TD>2019-11-14T03:45:49</TD>
+      <TD>research</TD>
+      <TD>ALMA VO Service</TD>
+      <TD>http://alma.mtk.nao.ac.jp/e/index.html</TD>
+      <TD/>
+      <TD>archive</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>radio</TD>
+      <TD>public</TD>
+      <TD/>
+      <TD>ivo://jvo/publishingregistry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://jvo/isas/darts/hitomi/hitomaster_v1</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.0</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>http://jvo.nao.ac.jp/skynode/do/tap/hitomi</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://jvo/isas/darts/hitomi/hitomaster_v1</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://jvo/isas/darts/hitomi/hitomaster_v1</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2019-05-23T00:53:54</TD>
+      <TD>Hitomi_Master</TD>
+      <TD>Hitomi Master Catalog</TD>
+      <TD>2019-11-14T03:48:19</TD>
+      <TD>research</TD>
+      <TD>This table records high-level information for the observations obtained with Hitomi. Hitomi was equipped with four different instruments that together cover a wide energy range 0.3-600 keV. Data were collected from six celestial objects (Perseus, N132D, IGR_J16318-4848, RXJ1856.5-3754, G21.5-0.9, and Crab) as well as black sky for a total of about one month of data in 2016.</TD>
+      <TD>https://darts.isas.jaxa.jp/pub/hitomi/data/hitomaster/hitomaster.html</TD>
+      <TD>DARTS/ISAS/JAXA</TD>
+      <TD>archive</TD>
+      <TD/>
+      <TD>Proc. SPIE 9144, 914425 (2014)</TD>
+      <TD>1.0</TD>
+      <TD/>
+      <TD>x-ray</TD>
+      <TD>public</TD>
+      <TD/>
+      <TD>ivo://jvo/publishingregistry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://jvo/nobeyama</TD>
+      <TD>6</TD>
+      <TD>6</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.0</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>http://jvo.nao.ac.jp/skynode/do/tap/nobeyama/</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://jvo/nobeyama</TD>
+      <TD>6</TD>
+      <TD>tr:tableaccess</TD>
+      <TD>NRO Legacy project : FUGIN, COMING, and Star-Formation</TD>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://jvo/nobeyama</TD>
+      <TD>vs:dataservice</TD>
+      <TD>2018-07-26T03:58:32</TD>
+      <TD>NRO FITS ARCHIVE</TD>
+      <TD>Nobeyama Radio Telescope FITS Archive</TD>
+      <TD>2019-11-14T03:48:50</TD>
+      <TD>research</TD>
+      <TD>FITS data archive for Nobeyama 45m radio telescope.</TD>
+      <TD>http://jvo.nao.ac.jp/portal/nobeyama/</TD>
+      <TD>NRO</TD>
+      <TD>archive#survey</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>radio</TD>
+      <TD>public</TD>
+      <TD/>
+      <TD>ivo://jvo/publishingregistry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.0</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>http://jvo.nao.ac.jp/skynode/do/tap/spcam</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD>TAP interface for Suprime-Cam mosaic image service</TD>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2008-04-10T00:00:00</TD>
+      <TD>SUBARU_SUP</TD>
+      <TD>Subaru Suprime-Cam data service</TD>
+      <TD>2020-11-04T06:00:31</TD>
+      <TD>research</TD>
+      <TD>The Subaru Prime Focus Camera (Suprime-Cam) is a mosaic of ten 2048 x 4096 CCDs, located at the prime focus of Subaru Telescope, which covers a 34' x 27' field of view with a pixel scale of 0.20''. This service provides access to the JVO Subaru Suprime-Cam mosaic image archive. The purpose of this archive is to provide quick look images taken by Subaru/Suprime-Cam. Those images were processed by a pipeline developed by JVO.</TD>
+      <TD>http://jvo.nao.ac.jp/portal/subaru/spcam/dr2.do</TD>
+      <TD/>
+      <TD>archive</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>optical</TD>
+      <TD/>
+      <TD/>
+      <TD>ivo://jvo/publishingregistry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>2</TD>
+      <TD>2</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.0</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>http://jvo.nao.ac.jp/skynode/do/siap/spcam/image_cutout/1.0?</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>2</TD>
+      <TD>sia12:simpleimageaccess</TD>
+      <TD>SIAP interface for Suprime-Cam mosaic image cutout service</TD>
+      <TD>ivo://ivoa.net/std/sia</TD>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2008-04-10T00:00:00</TD>
+      <TD>SUBARU_SUP</TD>
+      <TD>Subaru Suprime-Cam data service</TD>
+      <TD>2020-11-04T06:00:31</TD>
+      <TD>research</TD>
+      <TD>The Subaru Prime Focus Camera (Suprime-Cam) is a mosaic of ten 2048 x 4096 CCDs, located at the prime focus of Subaru Telescope, which covers a 34' x 27' field of view with a pixel scale of 0.20''. This service provides access to the JVO Subaru Suprime-Cam mosaic image archive. The purpose of this archive is to provide quick look images taken by Subaru/Suprime-Cam. Those images were processed by a pipeline developed by JVO.</TD>
+      <TD>http://jvo.nao.ac.jp/portal/subaru/spcam/dr2.do</TD>
+      <TD/>
+      <TD>archive</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>optical</TD>
+      <TD/>
+      <TD/>
+      <TD>ivo://jvo/publishingregistry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>3</TD>
+      <TD>3</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.0</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>http://jvo.nao.ac.jp/skynode/do/siap/spcam/image_nocut/1.0?</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>3</TD>
+      <TD>sia12:simpleimageaccess</TD>
+      <TD>SIAP interface for Suprime-Cam mosaic image service</TD>
+      <TD>ivo://ivoa.net/std/sia</TD>
+      <TD>ivo://jvo/subaru/spcam</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2008-04-10T00:00:00</TD>
+      <TD>SUBARU_SUP</TD>
+      <TD>Subaru Suprime-Cam data service</TD>
+      <TD>2020-11-04T06:00:31</TD>
+      <TD>research</TD>
+      <TD>The Subaru Prime Focus Camera (Suprime-Cam) is a mosaic of ten 2048 x 4096 CCDs, located at the prime focus of Subaru Telescope, which covers a 34' x 27' field of view with a pixel scale of 0.20''. This service provides access to the JVO Subaru Suprime-Cam mosaic image archive. The purpose of this archive is to provide quick look images taken by Subaru/Suprime-Cam. Those images were processed by a pipeline developed by JVO.</TD>
+      <TD>http://jvo.nao.ac.jp/portal/subaru/spcam/dr2.do</TD>
+      <TD/>
+      <TD>archive</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>optical</TD>
+      <TD/>
+      <TD/>
+      <TD>ivo://jvo/publishingregistry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://nci.org.au/macho/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://machotap.asvo.nci.org.au/ncitap/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://nci.org.au/macho/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://nci.org.au/macho/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2013-10-24T02:01:41</TD>
+      <TD>MACHO TAP</TD>
+      <TD>MACHO TAP</TD>
+      <TD>2019-09-04T08:23:03.149000</TD>
+      <TD/>
+      <TD>MACHO TAP service</TD>
+      <TD>http://macho.anu.edu.au</TD>
+      <TD>NCI ASVO</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://nci.org.au/skymapper/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://api.skymapper.nci.org.au/public/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://nci.org.au/skymapper/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://nci.org.au/skymapper/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2015-07-02T13:00:00</TD>
+      <TD>SkyMapper TAP</TD>
+      <TD>SkyMapper TAP</TD>
+      <TD>2019-03-13T13:43:44.100000</TD>
+      <TD/>
+      <TD>SkyMapper TAP service</TD>
+      <TD>http://skymapper.anu.edu.au</TD>
+      <TD>NCI ASVO</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://nci.org.au/wigglez/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://wiggleztap.asvo.nci.org.au/ncitap/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://nci.org.au/wigglez/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://nci.org.au/wigglez/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2013-10-24T02:01:41</TD>
+      <TD>WiggleZ TAP</TD>
+      <TD>WiggleZ Final Data Release TAP</TD>
+      <TD>2019-09-04T08:23:33.108000</TD>
+      <TD/>
+      <TD>WiggleZ final data release TAP service</TD>
+      <TD>http://wigglez.swin.edu.au/site/</TD>
+      <TD>NCI ASVO</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://org.gavo.dc/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://dc.zah.uni-heidelberg.de/tap</TD>
+      <TD>https://dc.zah.uni-heidelberg.de/tap</TD>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://org.gavo.dc/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://org.gavo.dc/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>GAVO DC TAP</TD>
+      <TD>GAVO Data Center TAP service</TD>
+      <TD>2020-10-06T12:44:40</TD>
+      <TD/>
+      <TD>The GAVO Data Center's TAP end point.  
+The Table Access Protocol (TAP) lets you execute queries against our
+database tables, inspect various metadata, and upload your own
+data.  
+
+In GAVO's data center, we in particular hold several large
+catalogs like PPMXL, 2MASS PSC, USNO-B2, UCAC4, WISE, SDSS DR7, for
+you to use in crossmatches, possibly with uploaded tables.
+
+Tables exposed through this endpoint include: nucand from the amanda schema, main from the annisred schema, data from the antares schema, data from the antares10 schema, dr10 from the apass schema, frames from the apo schema, main from the applause schema, gfh, id, identified, master, nid, unidentified from the arigfh schema, main from the arihip schema, main from the auger schema, data, phot_all, ssa_time_series from the bgds schema, data from the boydende schema, cat from the browndwarfs schema, cubes, fluxposv1200, fluxposv500, fluxv1200, fluxv500, objects, spectra from the califadr3 schema, images, srccat from the cars schema, meta from the carsarcs schema, data from the danish schema, main from the dfbsplates schema, spectra, ssa from the dfbsspec schema, main from the dmubin schema, main from the emi schema, data from the feros schema, fk6join, part1, part3 from the fk6 schema, data from the flare_survey schema, data, ordersmeta from the flashheros schema, data from the fornax schema, dr1, dr2_ts_ssa, dr2epochflux, dr2light from the gaia schema, data from the gcpms schema, main from the gdr2dist schema, main, photometry from the gdr2mock schema, generated_data, maglim_5, maglim_6, maglim_7, main, parsec_props from the gedr3mock schema, columns, services, tables from the glots schema, main from the gps1 schema, main from the hdgaia schema, data from the hiicounter schema, main from the hipparcos schema, main from the hppunion schema, main from the hsoy schema, nucand from the icecube schema, data from the inflight schema, obscore from the ivoa schema, events, photpoints, timeseries from the k2c9vst schema, plates from the kapteyn schema, katkat from the katkat schema, data from the lamost5 schema, geocounts, measurements, stations from the lightmeter schema, rawframes from the liverpool schema, main from the lspm schema, plates, wolfpalisa from the lsw schema, main from the maclega schema, rawframes from the maidanak schema, exts from the mcextinct schema, cubes, slitspectra from the mlqso schema, epn_core, mpcorb from the mpc schema, main, stars from the mwsc schema, main, stars from the mwsce14a schema, data from the obscode schema, bibrefs, maps, masers, monitor from the ohmaser schema, data, shapes from the openngc schema, main from the pcc schema, data from the plc schema, data from the plc2 schema, data from the plts schema, data from the polcatsmc schema, plates, rawplates from the potsdam schema, cubes, maps from the ppakm31 schema, data from the ppmx schema, main, usnocorr from the ppmxl schema, map10, map6, map7, map8, map9, map_union from the prdust schema, dr2, dr3, dr4, main from the rave schema, images, photons from the rosat schema, alt_identifier, authorities, capability, interface, intf_param, registries, relationship, res_date, res_detail, res_role, res_schema, res_subject, res_table, resource, stc_spatial, stc_spectral, stc_temporal, subject_uat, table_column, validation from the rr schema, objects, photpar from the sasmirala schema, sources from the sdssdr7 schema, main from the smakced schema, main from the spm4 schema, sources from the supercosmos schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, main from the taptest schema, main from the tgas schema, data from the theossa schema, epn_core from the titan schema, data from the toss schema, data from the twomass schema, icrscorr, main, ppmxlcross from the ucac3 schema, main from the ucac4 schema, main from the ucac5 schema, main from the urat1 schema, data, platecorrs, plates, ppmxcross, spurious, twomasscross from the usnob schema, data from the veronqsos schema, stripe82 from the vlastripe82 schema, archives, main from the wfpdb schema, main from the wise schema, data from the zcosmos schema.</TD>
+      <TD>http://dc.zah.uni-heidelberg.de/__system__/tap/run/info</TD>
+      <TD>GAVO Data Center</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://org.gavo.dc/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://osug-vo.osug/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://osug-vo.osug.fr:8080/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://osug-vo.osug/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://osug-vo.osug/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>OSUG TAP</TD>
+      <TD>OSUG Virtual Observatory TAP service</TD>
+      <TD>2020-01-09T07:54:53</TD>
+      <TD/>
+      <TD>The OSUG Virtual Observatory's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: epn_core from the sshade_spectra schema, obscore from the ivoa schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema.</TD>
+      <TD>http://osug-vo.osug.fr:8080/__system__/tap/run/info</TD>
+      <TD>Damien Albert</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://osug-vo.osug/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://purx/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://voparis-rr.obspm.fr:80/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://purx/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://purx/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>PADCC TAP</TD>
+      <TD>PADC TAP Server on voparis-rr.obspm.fr TAP service</TD>
+      <TD>2020-01-09T07:54:53</TD>
+      <TD/>
+      <TD>The PADC TAP Server on voparis-rr.obspm.fr's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, obscore from the ivoa schema, columns, services, tables from the glots schema, alt_identifier, authorities, capability, interface, intf_param, registries, relationship, res_date, res_detail, resource, res_role, res_schema, res_subject, res_table, stc_spatial, stc_spectral, stc_temporal, table_column, validation from the rr schema.</TD>
+      <TD>http://voparis-rr.obspm.fr:80/__system__/tap/run/info</TD>
+      <TD>PADC</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://purx/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://pvol/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://pvol2.ehu.eus:8083/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://pvol/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://pvol/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>GCP TAP</TD>
+      <TD>PVOL EPN-TAP TAP service</TD>
+      <TD>2017-06-22T14:14:41</TD>
+      <TD/>
+      <TD>The PVOL EPN-TAP's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, emptyobscore, obscore from the ivoa schema, epn_core from the pvol schema.</TD>
+      <TD>http://pvol2.ehu.eus:8083/__system__/tap/run/info</TD>
+      <TD>Planetary Sciences Group, UPV/EHU</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://pvol/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://spectrum.iaa/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://spectrum.iaa.es/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://spectrum.iaa/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://spectrum.iaa/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>IAA and CAB TAP</TD>
+      <TD>Cross section values TAP service</TD>
+      <TD>2016-04-03T18:56:07</TD>
+      <TD/>
+      <TD>The Cross section values's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, emptyobscore, obscore from the ivoa schema, epn_core from the abs_cs schema.</TD>
+      <TD>http://spectrum.iaa.es/__system__/tap/run/info</TD>
+      <TD>IAA-CSIC</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://spectrum.iaa/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://uni-heidelberg.de/gaia/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>https://gaia.ari.uni-heidelberg.de/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://uni-heidelberg.de/gaia/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://uni-heidelberg.de/gaia/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2016-08-05T09:15:01</TD>
+      <TD>ARI-Gaia</TD>
+      <TD>ARI's Gaia TAP Service</TD>
+      <TD>2020-07-15T07:03:59.391000</TD>
+      <TD>research</TD>
+      <TD>This service provides the data for the Gaia DR1 (a full-sky catalog of high-precision positions down to about 20 mag) and TGAS (a full-sky catalog of high-precision prositions and proper motions down to about 12 mag) catalogs.</TD>
+      <TD>https://gaia.ari.uni-heidelberg.de</TD>
+      <TD/>
+      <TD>catalog</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://vo-plasma.oeaw.ac.at/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://epn-tap.oeaw.ac.at/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://vo-plasma.oeaw.ac.at/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://vo-plasma.oeaw.ac.at/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>VO-Graz TAP</TD>
+      <TD>Space Research Institute - EPN-TAP 2.0 Service TAP service</TD>
+      <TD>2016-06-13T14:32:37</TD>
+      <TD/>
+      <TD>The Space Research Institute - EPN-TAP 2.0 Service's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, epn_core from the vexmag_epn20 schema, emptyobscore, obscore from the ivoa schema, epn_core from the impex_epn20 schema.</TD>
+      <TD>http://epn-tap.oeaw.ac.at/__system__/tap/run/info</TD>
+      <TD>Tielong Zhang, IWF-OeAW; FMI; LATMOS; MSU-SINP</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://vo-plasma.oeaw.ac.at/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://vopdc.obspm/luth/hess-dr</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://voparis-tap-astro.obspm.fr/__system__/tap/run/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://vopdc.obspm/luth/hess-dr</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://vopdc.obspm/luth/hess-dr</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2018-09-14T10:00:00</TD>
+      <TD>HESS DL3 DR1</TD>
+      <TD>H.E.S.S. DL3 public test data release 1</TD>
+      <TD>2018-10-26T14:30:00</TD>
+      <TD>research</TD>
+      <TD>The release consists of event lists and instrument response functions for observations of various
+            well-known gamma-ray sources (the Crab nebula, PKS 2155-304, MSH 15-52, RX J1713.7-3946) as well as
+            observations of empty fields for background modeling.</TD>
+      <TD>https://www.mpi-hd.mpg.de/hfm/HESS/pages/dl3-dr1/</TD>
+      <TD>H.E.S.S. collaboration</TD>
+      <TD>archive</TD>
+      <TD/>
+      <TD>https://www.mpi-hd.mpg.de/hfm/HESS/pages/dl3-dr1/hess_dl3_dr1.pdf</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://vopdc/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://vopdc.obspm/tap/maser</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://voparis-tap-maser.obspm.fr:80/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://vopdc.obspm/tap/maser</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://vopdc.obspm/tap/maser</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2018-12-03T11:00:00</TD>
+      <TD>PADC TAP Maser</TD>
+      <TD>PADC TAP Server on voparis-tap-maser.obspm.fr TAP service</TD>
+      <TD>2018-12-03T11:00:00</TD>
+      <TD>general#university#research</TD>
+      <TD>PADC MASER TAP server</TD>
+      <TD>http://maser.lesia.obspm.fr</TD>
+      <TD>B. Cecconi</TD>
+      <TD>catalog</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://vopdc/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://vopdc.obspm/tap/voevent</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://voparis-tap-voevent.obspm.fr:80/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://vopdc.obspm/tap/voevent</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://vopdc.obspm/tap/voevent</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2019-03-22T15:00:00</TD>
+      <TD>PADC TAP VOEvent</TD>
+      <TD>PADC TAP Server on voparis-tap-voevent.obspm.fr TAP service</TD>
+      <TD>2019-04-17T14:00:00</TD>
+      <TD>general#university#research</TD>
+      <TD>PADC VOEvent TAP server</TD>
+      <TD>http://voparis-tap-voevent.obspm.fr</TD>
+      <TD>P. Le Sidaner</TD>
+      <TD>catalog</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://vopdc/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://voxastro.org/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://rcsed-vo.sai.msu.ru/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://voxastro.org/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://voxastro.org/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>VOXAstro TAP</TD>
+      <TD>VOXastro Data Center TAP service</TD>
+      <TD>2017-02-05T18:45:04</TD>
+      <TD/>
+      <TD>The VOXastro Data Center's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: galaxyzoo, rcsed, rcsed_fibermags, rcsed_gasmet, rcsed_lines_gauss, rcsed_lines_nonpar, rcsed_lines_nonpar_reg, simard_table2, simard_table3 from the specphot schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, emptyobscore, obscore from the ivoa schema.</TD>
+      <TD>http://rcsed-vo.sai.msu.ru/__system__/tap/run/info</TD>
+      <TD>VOXAstro admin</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://voxastro.org/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://xaovo/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD>1.1</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://data.xao.ac.cn/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://xaovo/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://xaovo/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2009-12-01T10:00:00</TD>
+      <TD>XAO TAP</TD>
+      <TD>XAO Data Center TAP service</TD>
+      <TD>2019-10-01T08:59:54</TD>
+      <TD/>
+      <TD>The XAO Data Center's TAP end point. The Table Access
+Protocol (TAP) lets you execute queries against our database tables,
+inspect various metadata, and upload your own data. It is thus the
+VO's premier way to access public data holdings.
+
+Tables exposed through this endpoint include: pulsar from the pul schema, batc from the batc schema, nsone from the nsone schema, columns, groups, key_columns, keys, schemas, tables from the tap_schema schema, obscore from the ivoa schema, data from the pulsarcatalog schema, main from the spm4 schema, data from the ucd schema, main from the ppmxl schema, data from the obscode schema, notf from the gallery schema, columns, services, tables from the glots schema.</TD>
+      <TD>http://data.xao.ac.cn/__system__/tap/run/info</TD>
+      <TD>Hailong Zhang</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://xaovo/__system__/services/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://xcatdb/3xmmdr6/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://xcatdb.unistra.fr/3xmmdr6/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://xcatdb/3xmmdr6/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://xcatdb/3xmmdr6/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2015-02-02T14:00:00</TD>
+      <TD>3XMM-DR7-TAP</TD>
+      <TD>TAP interface of the 3XMM-dr6 XMM-Newton Catalogue</TD>
+      <TD>2017-06-26T18:13:22</TD>
+      <TD/>
+      <TD>The new version of the XMM-Newton EPIC Serendipitous Source Catalogue, 3XMM-DR6, includes more than two years of data with respect to 3XMM-DR5, with 678680 detections which relate to 468440 unique sources from 9160 observations that were public by the 31st January 2016. 3XMM-DR6 covers a total sky area, with at least 1 ks exposure, of ~982 square degrees if overlaps are taken into account, where some regions of the sky have been pointed as many as 50 times. This represents an increase of approximately 18% in terms of unique sources compared with 3XMM-DR5, that was released in April 2015. Around 10% of the detections are classified as extended, and spectra and time series have been extracted for around 22% of the sources. The positional uncertainty of the catalogue detections is generally less than 3 arcseconds (90% confidence) and the astrometric quality of 3XMM is improved with releases prior to 3XMM. Typical sensitivities in the catalogue are ~6E-15 and ~1.5E-14 erg/cm2/s in the soft (0.2-2 keV) and hard (2-12 keV) X-ray band, respectively.</TD>
+      <TD>http://xmmssc.irap.omp.eu/</TD>
+      <TD>SSC XMM-Newton</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+     <TR>
+      <TD>ivo://xcatdb/3xmmdr7/tap</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>vs:paramhttp</TD>
+      <TD>std</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>base</TD>
+      <TD>http://xcatdb.unistra.fr/3xmmdr7/tap</TD>
+      <TD/>
+      <TD>0</TD>
+      <TD/>
+      <TD>ivo://xcatdb/3xmmdr7/tap</TD>
+      <TD>1</TD>
+      <TD>tr:tableaccess</TD>
+      <TD/>
+      <TD>ivo://ivoa.net/std/tap</TD>
+      <TD>ivo://xcatdb/3xmmdr7/tap</TD>
+      <TD>vs:catalogservice</TD>
+      <TD>2017-06-26T17:57:19</TD>
+      <TD>3XMM-DR7-TAP</TD>
+      <TD>TAP interface of the 3XMM-dr7 XMM-Newton Catalogue</TD>
+      <TD>2017-06-26T18:13:06</TD>
+      <TD/>
+      <TD>The 3XMM-DR7 catalogue contains source detections drawn from 9710 XMM-Newton EPIC observations, 
+        		    covering an energy interval from 0.2 keV to 12 keV. These observations 
+        		    were made between 2000 February 3 and 2016 December 15 and all datasets 
+        		    were publicly available by 2016 December 31, but not all public observations are included in this catalogue 
+        			This version of the XMM-Newton EPIC Serendipitous Source Catalogue,
+        			3XMM-DR7 includes 596268 clean detections which relate to 499266 unique
+        			sources from 9710 observations that were public by the 31st January
+        			2016. 
+        			3XMM-DR7 covers a total sky area of ~1032 square degrees if overlaps 
+        			are taken into account, where some
+        			regions of the sky have been pointed as many as 50 times. 
+        			The median flux in the total photon energy band (0.2 - 12 keV) 
+        			of the catalogue detections is ~ 1.9 × 10-14 erg cm-2 s-1; in the 
+        			soft energy band (0.2 - 2 keV) the median flux is ~ 6 × 10-15, 
+        			and in the hard band (2 - 12 keV) it is ~ 8 × 10-15. 
+        			About 23% of the sources have total fluxes below 1 × 10-14 erg cm-2 s-1.</TD>
+      <TD>http://xmmssc.irap.omp.eu/</TD>
+      <TD>SSC XMM-Newton</TD>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD/>
+      <TD>ivo://esavo/registry</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+  </TABLE>
+ </RESOURCE>
+</VOTABLE>
