@@ -27,14 +27,19 @@ The server responds with the a VOTable response which contains some metadata des
   </FIELD>
 ```
 
-Where the utype attributes refer to specific elements defined in the [ObsCore](https://ivoa.net/documents/ObsCore/) data model.
+Where the ucd attributes refer to terms in the [UCD](https://ivoa.net/documents/cover/UCD-20050812.html) vocabulary:
+```xml
+  <FIELD .... ucd="pos.eq.ra">
+     ....
+  </FIELD>
+```
 
+and the utype attributes refer to specific elements defined in the [ObsCore](https://ivoa.net/documents/ObsCore/) data model:
 ```xml
   <FIELD .... utype="obscore:char.spatialaxis.coverage.location.coord.position2d.value2.c1">
      ....
   </FIELD>
 ```
-
 
 Followed by the data encoded as a binary stream:
 ```xml
