@@ -4,12 +4,9 @@
 # A demo program to show how a TAP query in PyVO works. 
 
 import pyvo
-
-import sys
 import warnings
 
-if not sys.warnoptions:
-    warnings.simplefilter("ignore")
+warnings.simplefilter("ignore")
 
 
 service = pyvo.dal.TAPService ("http://dc.zah.uni-heidelberg.de/tap")
