@@ -4,13 +4,19 @@
 from astropy.table import Table
 import pyvo
 
+import sys
+import warnings
+
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
+
 QUERY="""
 SELECT
    TOP 10
    *
-   F  ROM ivoa.obscore AS db
+   FROM ivoa.obscore AS db
    JOIN TAP_UPLOAD.lt AS tc
-   ON 1=CONTAPOINT('ICRS', db.s_ra, db.s_dec),
+   ON 1=CONTAINS (POINT('ICRS', db.s_ra, db.s_dec),
                  CIRCLE('ICRS', tc.RA, tc.Decl, tc.Beta))
    AND db.dataproduct_type='image'
 """
@@ -28,7 +34,7 @@ service = pyvo.dal.TAPService ("http://dc.zah.uni-heidelberg.de/tap")
 
 # Run Search on obscore table on the GAVO dc
 result = service.run_async(query=QUERY, uploads={"lt":lt})
- 
+
 # Send resulting table to Topcat via SAMP
 result.broadcast_samp("topcat")
 
