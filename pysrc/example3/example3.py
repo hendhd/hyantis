@@ -8,20 +8,20 @@ QUERY="""
 SELECT
    TOP 10
    *
-   FROM ivoa.obscore AS db
+   F  ROM ivoa.obscore AS db
    JOIN TAP_UPLOAD.lt AS tc
-   ON 1=CONTAINS(POINT('ICRS', db.s_ra, db.s_dec),
+   ON 1=CONTAPOINT('ICRS', db.s_ra, db.s_dec),
                  CIRCLE('ICRS', tc.RA, tc.Decl, tc.Beta))
    AND db.dataproduct_type='image'
 """
 
 # Try to load neutrino file from example2 
 try:
-  lt = Table.read('../example2/neutrinos.xml', format='votable')
+  lt = Table.read('../example2/neutrinos.vot', format='votable')
 
 # Or get the fallback file
 except: 
-  lt = Table.read('fallback.xml', format='votable')
+  lt = Table.read('fallback.vot', format='votable')
 
 # Make Service Object
 service = pyvo.dal.TAPService ("http://dc.zah.uni-heidelberg.de/tap")
