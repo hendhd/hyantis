@@ -9,7 +9,7 @@ We can use curl to access the web service directly, sending just the LANG and QU
         'http://dc.zah.uni-heidelberg.de/tap/sync'
 ```
 
-Which sends a basic HTTP request:
+Which sends a basic HTTP request to the web service:
 ```
     GET /tap/sync?LANG=ADQL&query=SELECT%20TOP%205%20s_ra%2C%20s_dec%20FROM%20ivoa.obscore HTTP/1.1
     Host: dc.zah.uni-heidelberg.de
@@ -17,7 +17,7 @@ Which sends a basic HTTP request:
     Accept: */*
 ```
 
-The server responds with the a VOTable response which contains some metadata describing each of the columns:
+The web service responds with a VOTable response containing metadata describing each of the columns:
 ```xml
   <FIELD ID="s_ra" datatype="double" name="s_ra" ucd="pos.eq.ra" unit="deg" utype="obscore:char.spatialaxis.coverage.location.coord.position2d.value2.c1">
     <DESCRIPTION>RA of (center of) observation, ICRS</DESCRIPTION>
@@ -27,14 +27,14 @@ The server responds with the a VOTable response which contains some metadata des
   </FIELD>
 ```
 
-Where the ucd attributes refer to terms in the [UCD](https://ivoa.net/documents/cover/UCD-20050812.html) vocabulary:
+Where the ucd attribute refers to terms in the [UCD](https://ivoa.net/documents/cover/UCD-20050812.html) vocabulary:
 ```xml
   <FIELD .... ucd="pos.eq.ra">
      ....
   </FIELD>
 ```
 
-and the utype attributes refer to specific elements defined in the [ObsCore](https://ivoa.net/documents/ObsCore/) data model:
+and the utype attribute refers to specific elements defined in the [ObsCore](https://ivoa.net/documents/ObsCore/) data model:
 ```xml
   <FIELD .... utype="obscore:char.spatialaxis.coverage.location.coord.position2d.value2.c1">
      ....
@@ -50,7 +50,7 @@ Followed by the data encoded as a binary stream:
    </DATA>
 ```
 
-PyVO expands the binary stream to extract the data :
+The PyVO `votable.to_xml` method decodes this binary stream to extract the data :
 
 ```xml
    <DATA>
