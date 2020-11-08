@@ -12,12 +12,12 @@ if not sys.warnoptions:
 
 QUERY="""
 SELECT
-   TOP 10
+   TOP 50
    *
    FROM ivoa.obscore AS db
-   JOIN TAP_UPLOAD.lt AS tc
+   JOIN TAP_UPLOAD.lt AS mine
    ON 1=CONTAINS (POINT('ICRS', db.s_ra, db.s_dec),
-                 CIRCLE('ICRS', tc.RA, tc.Decl, tc.Beta))
+                 CIRCLE('ICRS', mine.RA, mine.Decl, mine.Beta))
    AND db.dataproduct_type='image'
 """
 
@@ -37,7 +37,3 @@ result = service.run_async(query=QUERY, uploads={"lt":lt})
 
 # Send resulting table to Topcat via SAMP
 result.broadcast_samp("topcat")
-
-
-
-
