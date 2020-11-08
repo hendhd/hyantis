@@ -8,7 +8,7 @@ from astropy.table import Table
 
 QUERY="""
 SELECT
-   TOP 50
+   TOP 3
    *
    FROM ivoa.obscore AS db
    JOIN TAP_UPLOAD.lt AS mine
