@@ -27,10 +27,15 @@ The server responds with the a VOTable response which contains some metadata des
   </FIELD>
 ```
 
-followed by the data encoded as a binary stream
+Followed by the data encoded as a binary stream:
 ```xml
     <BINARY>
       <STREAM encoding="base64">QHYnb1Nr/1dARImFe+0/ykB2J29Ta/9XQESJhXvtP8pAdidvU2v/V0BEiYV77T/KQHYni2aJWrVARIqLuBeqgEB2J4tmiVq1QESKi7gXqoA=</STREAM>
     </BINARY>
 ```
+
+PyVO expands the binary stream to extract the data :
+
+
+
 
