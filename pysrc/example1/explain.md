@@ -1,6 +1,6 @@
 Looking at what is happening underneath ...
 
-We can use curl to access the web service directly, sending just the LANG and QUERY parameters:
+We can use curl to access the web service directly, sending the LANG and QUERY parameters defined in the [TAP](https://www.ivoa.net/documents/TAP/) specification:
 ```bash
 curl --get \
     --silent \
@@ -9,7 +9,7 @@ curl --get \
     'http://dc.zah.uni-heidelberg.de/tap/sync'
 ```
 
-Which sends a basic HTTP request to the web service:
+Which sends a basic [HTTP GET](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) request to the web service:
 ```
 GET /tap/sync?LANG=ADQL&query=SELECT%20TOP%205%20s_ra%2C%20s_dec%20FROM%20ivoa.obscore HTTP/1.1
 Host: dc.zah.uni-heidelberg.de
@@ -17,7 +17,7 @@ User-Agent: curl/7.69.1
 Accept: */*
 ```
 
-The web service responds with a VOTable response containing metadata describing each of the columns:
+The web service responds with a [VOTable](https://ivoa.net/documents/VOTable/) response containing metadata describing each of the columns:
 ```xml
 <FIELD ID="s_ra" datatype="double" name="s_ra" ucd="pos.eq.ra" unit="deg" utype="obscore:char.spatialaxis.coverage.location.coord.position2d.value2.c1">
   <DESCRIPTION>RA of (center of) observation, ICRS</DESCRIPTION>
