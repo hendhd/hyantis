@@ -18,13 +18,10 @@ Which sends a basic HTTP request:
 ```
 
 The server responds with the a VOTable response which contains some metadata describing each of the columns:
-```zml
+```xml
   <FIELD ID="s_ra" datatype="double" name="s_ra" ucd="pos.eq.ra" unit="deg" utype="obscore:char.spatialaxis.coverage.location.coord.position2d.value2.c1">
     <DESCRIPTION>RA of (center of) observation, ICRS</DESCRIPTION>
   </FIELD>
-```
-
-```xml
   <FIELD ID="s_dec" datatype="double" name="s_dec" ucd="pos.eq.dec" unit="deg" utype="obscore:char.spatialaxis.coverage.location.coord.position2d.value2.c2">
     <DESCRIPTION>Dec of (center of) observation, ICRS</DESCRIPTION>
   </FIELD>
