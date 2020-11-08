@@ -50,7 +50,7 @@ Followed by the data encoded as a binary stream:
    </DATA>
 ```
 
-PyVO expands the binary stream to extract the data :
+The PyVO `votable.to_xml` method decodes this binary stream to extract the data :
 
 ```xml
    <DATA>
