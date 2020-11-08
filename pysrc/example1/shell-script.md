@@ -52,6 +52,29 @@ Followed by the data encoded as a binary stream:
 
 PyVO expands the binary stream to extract the data :
 
-
-
-
+```xml
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>354.464679166665</TD>
+      <TD>41.074386111111</TD>
+     </TR>
+     <TR>
+      <TD>354.464679166665</TD>
+      <TD>41.074386111111</TD>
+     </TR>
+     <TR>
+      <TD>354.464679166665</TD>
+      <TD>41.074386111111</TD>
+     </TR>
+     <TR>
+      <TD>354.47153333334</TD>
+      <TD>41.082388888889</TD>
+     </TR>
+     <TR>
+      <TD>354.47153333334</TD>
+      <TD>41.082388888889</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+```
