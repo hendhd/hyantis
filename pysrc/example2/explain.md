@@ -1,6 +1,6 @@
 Looking at what is happening underneath ...
 
-We can use curl to access the web service directly, sending just the RA, DEC and SR parameters:
+We can use curl to access the web service directly, sending the RA, DEC and SR parameters defined in the [Cone Search](https://ivoa.net/documents/cover/ConeSearch-20060908.html) specification:
 ```bash
 curl --get \
     --silent \
@@ -10,7 +10,7 @@ curl --get \
     'http://vo.km3net.de/ant20_01/nu/cone/scs.xml'
 ```
 
-Which sends a basic HTTP request to the web service:
+Which sends a basic [HTTP GET](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) request to the web service:
 ```
 GET /ant20_01/nu/cone/scs.xml?RA=43&DEC=45&SR=3 HTTP/1.1
 Host: vo.km3net.de
@@ -18,7 +18,7 @@ User-Agent: curl/7.69.1
 Accept: */*
 ```
 
-The web service responds with a VOTable response containing metadata describing each of the columns
+The web service responds with a [VOTable](https://ivoa.net/documents/VOTable/)  response containing metadata describing each of the columns
 defined in the [Cone Search](https://ivoa.net/documents/cover/ConeSearch-20060908.html) specification.
 ```xml
 <FIELD ID="distCol" datatype="double" name="_r" ucd="pos.distance" unit="deg">
