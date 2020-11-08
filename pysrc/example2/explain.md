@@ -58,7 +58,42 @@ The PyVO `votable.to_xml` method decodes this binary stream to extract the data 
 ```xml
 <DATA>
   <TABLEDATA>
-
+    <TR>
+      <TD>0.836538409016823</TD>
+      <TD>55592.169</TD>
+      <TD>0.3</TD>
+      <TD>48</TD>
+      <TD>43.3</TD>
+      <TD>35.8</TD>
+      <TD>ANT3412</TD>
+    </TR>
+    <TR>
+      <TD>1.94262592664262</TD>
+      <TD>57258.5917</TD>
+      <TD>0.3</TD>
+      <TD>35</TD>
+      <TD>43.5</TD>
+      <TD>36.9</TD>
+      <TD>ANT7402</TD>
+    </TR>
+    <TR>
+      <TD>2.52776479777075</TD>
+      <TD>55756.7405</TD>
+      <TD>0.5</TD>
+      <TD>33</TD>
+      <TD>44.5</TD>
+      <TD>32.8</TD>
+      <TD>ANT3846</TD>
+    </TR>
+    <TR>
+      <TD>2.73187906659559</TD>
+      <TD>54500.0934</TD>
+      <TD>0.5</TD>
+      <TD>64</TD>
+      <TD>43.5</TD>
+      <TD>32.3</TD>
+      <TD>ANT0366</TD>
+    </TR>
   </TABLEDATA>
 </DATA>
 ```
