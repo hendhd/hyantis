@@ -44,16 +44,22 @@ defined in the [Cone Search](https://ivoa.net/documents/cover/ConeSearch-2006090
 </FIELD>
 ```
 
+Followed by the data encoded as a binary stream:
+```xml
+<DATA>
+  <BINARY>
+    <STREAM encoding="base64">P9U8igtjUWZA6sjLfpD/lz/ZmZmZmZmaAAAALkBFmZmZmZmaQEZZmZmZmZoAAAAHQU5UMTM5NA==</STREAM>
+  </BINARY>
+</DATA>
+```
 
+The PyVO `votable.to_xml` method decodes this binary stream to extract the data :
 
+```xml
+<DATA>
+  <TABLEDATA>
 
-
-
-
-
-
-
-
-
-
+  </TABLEDATA>
+</DATA>
+```
 
